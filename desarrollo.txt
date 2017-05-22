@@ -1,0 +1,57 @@
+------------APP Móvil Servicio Técnico--------------
+
+--------------TÉCNICO--------------
+
+* Registro de Ordenes de Servicio Técnico
+
+* Listar Ordenes de Servicio
+	Filtro: - Todas
+		- Fecha específica
+		- Buscar por Usuario
+
+* Avance de Orden de Servicio (Actualizar)
+
+* Cerrar Orden de Servicio (cambio de estado)
+
+--------------CLIENTE----------------------
+
+* Consultar Orden por CLiente, y ver estado y avance de dicha orden.
+
+
+*********++++++++++++++++++++DESARROLLO+++++++++++++++++***************
+
++ Página del Login, por tipo de usuario, cliente o técnico sin SESIONES
+
++ BASE DE DATOS
+
+----usuarios-----
+-----------------
+----id(15)-----------
+----clave--------
+----nombre-------
+----tipo---------(cliente, usuario)
+-----------------
+
+-----ordenes_servicio------
+---------------------------
+-----numero(Auto Increm)---
+-----fecha_ingreso---------
+-----ultimo_cambio---------
+-----id_tecnico------------
+-----id_cliente------------
+-----tipo_eqipo------------
+-----marca-----------------
+-----serial----------------
+-----estado----------------
+-----observaciones---------
+-----avance----------------
+---------------------------
+
+Datos Inicio de Sesión en la BD
+host: mysql.hostinger.co
+BD: u143723984_st
+Usuario: u143723984_st
+Clave: admin1
+
+
+
