@@ -2,7 +2,7 @@
 
 --------------TÉCNICO--------------
 
-* Registro de Ordenes de Servicio Técnico
+* Registro de Ordenes de Servicio Técnico(terminado)
 
 * Listar Ordenes de Servicio
 	Filtro: - Todas
@@ -10,8 +10,8 @@
 		- Buscar por Usuario
 
 * Avance de Orden de Servicio (Actualizar)
+ y cerrar orden de Servicio
 
-* Cerrar Orden de Servicio (cambio de estado)
 
 --------------CLIENTE----------------------
 
@@ -29,7 +29,7 @@
 ----id(15)-----------
 ----clave--------
 ----nombre-------
-----tipo---------(cliente, usuario)
+----tipo---------(cliente, tecnico)
 -----------------
 
 -----ordenes_servicio------
@@ -39,7 +39,7 @@
 -----ultimo_cambio---------
 -----id_tecnico------------
 -----id_cliente------------
------tipo_eqipo------------
+-----tipo_equipo------------
 -----marca-----------------
 -----serial----------------
 -----estado----------------

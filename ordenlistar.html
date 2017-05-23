@@ -11,6 +11,15 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+	
+			<script type="text/javascript">
+
+			$(document).ready(function(){
+      		$("#respuesta").load("http://jupardu.hol.es/st/ordenlistar.php");
+      		});
+
+			</script>
+
 </head>
 <body>
 <nav class="navbar navbar-inverse">
@@ -26,7 +35,14 @@
     </ul>
   </div>
 </nav>
-<h1>Bienvenido Técnico</h1>
+<h1>Lista de Ordenes de Servicio</h1>
+	
+
+ <div id="respuesta"></div>
+ <br></br>
+ <button type="button" class="btn btn-success" id="actualizar">Actualizar</button>
+ <div id="resultado"></div>
+</form>
 </body>
 </html>
 				

@@ -9,20 +9,22 @@
 			<script>
 
 			window.onload = function(){
-				$("#login").click(enviar);
+				$("#registrar").click(enviar);
 			}
 
 			function enviar() { 
 			  var id=$("#id").val(); 
-			  var clave=$("#clave").val(); 
+			  var clave=$("#clave").val();
+			  var nombre=$("#nombre").val();
+			  var tipo=$("#tipo").val();
 		
 			  $.ajax({ 
 			  async:true, 
 			  type: "POST", 
 			  dataType: "html", 
 			  contentType: "application/x-www-form-urlencoded", 
-			  url:"http://jupardu.hol.es/st/login.php", 
-			  data:"id="+id+"&clave="+clave,
+			  url:"http://jupardu.hol.es/st/registro.php", 
+			  data:"id="+id+"&clave="+clave+"&nombre="+nombre+"&tipo="+tipo,
 			  beforeSend:inicioEnvio, 
 			  success:llegadaDatos, 
 			  timeout:4000, 
@@ -37,14 +39,8 @@
 
 			        function llegadaDatos(datos)
 			        {
-			            if(datos == "cliente"){
-			            	window.location="inicioCliente.html";
-			            }else if(datos == "tecnico"){
-			            	window.location="inicioTecnico.html";
-			            }else{
-			            	$("#respuesta").text(datos);
-			            }
-			                       
+			            $("#respuesta").text(datos);
+			            $('form')[0].reset();        
 			        }
 
 			        function problemas()
@@ -67,18 +63,29 @@
     </ul>
   </div>
 </nav>
-<h1>Iniciar Sesión</h1>
+<h1>Registrar Usuario</h1>
 	
 	<form>
-	  <div class="input-group">
-	    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-	    <input id="id" type="text" class="form-control" name="id" placeholder="Usuario">
-	  </div>
-	  <div class="input-group">
-	    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-	    <input id="clave" type="password" class="form-control" name="clave" placeholder="Contraseña">
-	  </div>
-	  <button type="button" class="btn btn-success" id="login">Iniciar Sesión</button>
+	  	<div class="form-group">
+		  <label for="id">Id de Usuario:</label>
+		  <input type="text" class="form-control" id="id" name="id">
+		</div>
+		<div class="form-group">
+		  <label for="clave">Clave:</label>
+		  <input type="password" class="form-control" id="clave" name="clave">
+		</div>
+		<div class="form-group">
+		  <label for="nombre">Nombre del Usuario:</label>
+		  <input type="text" class="form-control" id="nombre" name="nombre">
+		</div>
+		<div class="form-group">
+		  <label for="tipo">Tipo:</label>
+		  <select class="form-control" id="tipo" name="tipo">
+		    <option value="cliente">Cliente</option>
+		    <option value="tecnico">Técnico</option>
+		   </select>
+	  	</div>
+	  	<button type="button" class="btn btn-success" id="registrar">Registrar</button>
 	</form>
 	
  <h3><div id="respuesta"></div></h3>

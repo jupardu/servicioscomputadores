@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>SERVICIO TÉCNICO</title>
+	<meta charset="UTF-8"> 
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	
+			<script type="text/javascript">
+
+			$(document).ready(function(){
+      		$("#clientes").load("http://jupardu.hol.es/st/mostrarClientes.php");
+      		});
+
+			window.onload = function(){
+				$("#buscar").click(enviar);
+			}
+
+			function enviar() {
+				
+			var idCliente=$("#idCliente").val();
+				
+		
+			  $.ajax({ 
+			  async:true, 
+			  type: "POST", 
+			  dataType: "html", 
+			  contentType: "application/x-www-form-urlencoded", 
+			  url:"http://jupardu.hol.es/st/ordenlistarcliente.php",
+			  data:"&idCliente="+idCliente,
+			  beforeSend:inicioEnvio, 
+			  success:llegadaDatos, 
+			  timeout:4000, 
+			  error:problemas }); 
+			  return false; 
+			} 
+
+			function inicioEnvio()
+	        {
+	            $("#resultado").text("Se están enviando los datos");
+	        }
+
+	        function llegadaDatos(datos)
+	        {
+	            $("#resultado").html(datos);
+	                        
+	        }
+
+	        function problemas()
+	        {
+	            $("#resultado").text('Problemas en el servidor.');
+	        }
+
+	 		</script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">SERVICIO TÉCNICO</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="index.html">Inicio</a></li>
+      <li class="active"><a href="registroform.html">Registrar Usuario</a></li>
+    </ul>
+  </div>
+</nav>
+<h1>Lista de Ordenes de Servicio</h1>
+	
+
+ <div id="clientes"></div>
+ <br></br>
+ <button type="button" class="btn btn-success" id="buscar">Buscar</button>
+ <div id="resultado"></div>
+ 
+
+</form>
+</body>
+</html>
+				
